@@ -10,31 +10,15 @@ import com.system.trailer.entity.Trailer;
 import com.system.trailer.repository.TrailerRepository;
 
 @Service
-public class TrailerService {
-    @Autowired
-    private TrailerRepository trailerRepository;
+public interface TrailerService {
 
-    public Trailer registerTrailer(Trailer trailer) {
-        return trailerRepository.save(trailer);
-    }
+    public Trailer registerTrailer(Trailer trailer);
     
-    public Optional<Trailer> getTrailerById(Long id) {
-        return trailerRepository.findById(id);
-    }
+    public Optional<Trailer> getTrailerById(Long id);
 
-    public Trailer updateInspectionStatus(Long id, boolean inspected) {
-        Trailer trailer = trailerRepository.findById(id).orElseThrow(() -> new RuntimeException("Trailer not found"));
-        trailer.setInspected(inspected);
-        return trailerRepository.save(trailer);
-    }
+    public Trailer updateInspectionStatus(Long id, boolean inspected);
 
-    public Trailer approveTrailer(Long id) {
-        Trailer trailer = trailerRepository.findById(id).orElseThrow(() -> new RuntimeException("Trailer not found"));
-        trailer.setApproved(true);
-        return trailerRepository.save(trailer);
-    }
+    public Trailer approveTrailer(Long id,String approvedBy) ;
 
-    public List<Trailer> getApprovalHistory() {
-    	return trailerRepository.findAll();
-    }
+    public List<Trailer> getApprovalHistory() ;
 }

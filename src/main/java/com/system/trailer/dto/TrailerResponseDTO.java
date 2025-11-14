@@ -1,103 +1,64 @@
-package com.system.trailer.entity;
+package com.system.trailer.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.system.trailer.entity.TrailerType;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name = "trailer")
-public class Trailer {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+@Data
+public class TrailerResponseDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true)
+	private Long id;
     private String serialNumber;
-
-    @Column(nullable = false)
     private String model;
-
-    @Column(nullable = false)
     private LocalDate productionDate;
-
-	private boolean inspected = false;
-    private boolean approved = false;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    private boolean inspected;
+    private boolean approved;
     private TrailerType trailerType;
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getSerialNumber() {
 		return serialNumber;
 	}
-
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
-
 	public String getModel() {
 		return model;
 	}
-
 	public void setModel(String model) {
 		this.model = model;
 	}
-
 	public LocalDate getProductionDate() {
 		return productionDate;
 	}
-
 	public void setProductionDate(LocalDate productionDate) {
 		this.productionDate = productionDate;
 	}
-
 	public boolean isInspected() {
 		return inspected;
 	}
-
 	public void setInspected(boolean inspected) {
 		this.inspected = inspected;
 	}
-
 	public boolean isApproved() {
 		return approved;
 	}
-
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
-
 	public TrailerType getTrailerType() {
 		return trailerType;
 	}
-
 	public void setTrailerType(TrailerType trailerType) {
 		this.trailerType = trailerType;
 	}
-
-  
+    
+    
 }
