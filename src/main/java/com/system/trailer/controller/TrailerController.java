@@ -58,12 +58,6 @@ public class TrailerController {
         Trailer trailer = trailerService.approveTrailer(id,approvedBy);
         return ResponseEntity.ok(trailer);
     }
-
-	/*
-	 * @GetMapping("/history") public ResponseEntity<List<Trailer>>
-	 * getApprovalHistory() { List<Trailer> history =
-	 * trailerService.getApprovalHistory(); return ResponseEntity.ok(history); }
-	 */
     
     @GetMapping("/history")
     public List<TrailerApprovalHistory> getHistory(

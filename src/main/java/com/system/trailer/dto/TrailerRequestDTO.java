@@ -22,37 +22,26 @@ public class TrailerRequestDTO {
     @NotNull(message = "Trailer type is required")
     private TrailerType trailerType;
 
-	public String getSerialNumber() {
-		return serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
-	public LocalDate getProductionDate() {
-		return productionDate;
-	}
-
-	public void setProductionDate(LocalDate productionDate) {
-		this.productionDate = productionDate;
-	}
-
-	public TrailerType getTrailerType() {
-		return trailerType;
-	}
-
-	public void setTrailerType(TrailerType trailerType) {
-		this.trailerType = trailerType;
-	}
+	/*
+	 * public String getSerialNumber() { return serialNumber; }
+	 * 
+	 * public void setSerialNumber(String serialNumber) { this.serialNumber =
+	 * serialNumber; }
+	 * 
+	 * public String getModel() { return model; }
+	 * 
+	 * public void setModel(String model) { this.model = model; }
+	 * 
+	 * public LocalDate getProductionDate() { return productionDate; }
+	 * 
+	 * public void setProductionDate(LocalDate productionDate) { this.productionDate
+	 * = productionDate; }
+	 * 
+	 * public TrailerType getTrailerType() { return trailerType; }
+	 * 
+	 * public void setTrailerType(TrailerType trailerType) { this.trailerType =
+	 * trailerType; }
+	 */
 
     // No inspected/approved here — backend handles that
     

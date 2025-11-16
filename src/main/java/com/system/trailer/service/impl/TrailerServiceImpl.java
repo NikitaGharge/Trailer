@@ -28,7 +28,7 @@ public class TrailerServiceImpl implements TrailerService {
     }
     
     public Optional<Trailer> getTrailerById(Long id) {
-        //log.info("Processing trailer with serial number: {}", id);
+        log.info("Processing trailer with serial number: {}", id);
         return trailerRepository.findById(id);
     }
 
@@ -51,7 +51,7 @@ public class TrailerServiceImpl implements TrailerService {
         history.setApprovedBy(approvedBy);
         historyRepository.save(history);
 
-      //  log.info("Trailer {} approved by {}", trailer.getSerialNumber(), approvedBy);
+        log.info("Trailer {} approved by {}", trailer.getSerialNumber(), approvedBy);
 
         return trailer;
     }

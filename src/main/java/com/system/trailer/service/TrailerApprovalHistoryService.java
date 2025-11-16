@@ -2,10 +2,9 @@ package com.system.trailer.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Component;
 import com.system.trailer.entity.TrailerApprovalHistory;
-@Service
+@Component
 public interface TrailerApprovalHistoryService {
 	  public List<TrailerApprovalHistory> getHistory(
 	            String serialNumber,
