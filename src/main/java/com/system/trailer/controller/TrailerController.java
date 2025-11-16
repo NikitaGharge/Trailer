@@ -21,9 +21,12 @@ import com.system.trailer.mapper.TrailerMapper;
 import com.system.trailer.service.TrailerApprovalHistoryService;
 import com.system.trailer.service.TrailerService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
+@Tag(name = "Trailer Controller", description = "Operations related to trailers")
 @RequestMapping("/trailers")
 public class TrailerController {
 
@@ -34,12 +37,14 @@ public class TrailerController {
     @Autowired
     private TrailerApprovalHistoryService historyService;
 
+    @Operation(summary = "Register a new trailer", description = "Registers a new trailer in the system")
     @PostMapping
     public ResponseEntity<Trailer> registerTrailer(@Valid @RequestBody TrailerRequestDTO requestDTO) {
         Trailer trailer = TrailerMapper.toEntity(requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(trailerService.registerTrailer(trailer));
     }
 
+    @Operation(summary = "Get trailer by ID")
     @GetMapping("/{id}")
     public ResponseEntity<Trailer> getTrailer(@PathVariable Long id) {
     	return trailerService.getTrailerById(id)

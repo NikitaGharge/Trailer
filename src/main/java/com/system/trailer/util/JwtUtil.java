@@ -3,16 +3,17 @@ package com.system.trailer.util;
 import java.security.Key;
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-
+@Component
 public class JwtUtil {
-    private static final String SECRET_KEY = "your-256-bit-secret-key-for-jwt";
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
-    private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256); // auto-generates secure key
 
     public String generateToken(String username, String role) {
         return Jwts.builder()

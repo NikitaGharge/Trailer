@@ -10,7 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "trailer_approval_history")
 public class TrailerApprovalHistory {
@@ -32,44 +39,5 @@ public class TrailerApprovalHistory {
     @Column(nullable = false)
     private String approvedBy; // username or user id
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Trailer getTrailer() {
-		return trailer;
-	}
-
-	public void setTrailer(Trailer trailer) {
-		this.trailer = trailer;
-	}
-
-	public boolean isApproved() {
-		return approved;
-	}
-
-	public void setApproved(boolean approved) {
-		this.approved = approved;
-	}
-
-	public LocalDateTime getApprovalDate() {
-		return approvalDate;
-	}
-
-	public void setApprovalDate(LocalDateTime approvalDate) {
-		this.approvalDate = approvalDate;
-	}
-
-	public String getApprovedBy() {
-		return approvedBy;
-	}
-
-	public void setApprovedBy(String approvedBy) {
-		this.approvedBy = approvedBy;
-	}
 
 }
